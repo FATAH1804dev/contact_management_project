@@ -1,0 +1,56 @@
+{
+  "name": "api_users_project",
+  "version": "1.0.0",
+  "description": "RESTful API project for handling user records, built with Node.js and Express.js, designed for learning and practice",
+  "keywords": [
+    "api",
+    "nodejs",
+    "expressjs",
+    "users_management",
+    "project_learning"
+  ],
+  "homepage": "https://github.com/FATAH1804dev/api_project_users#readme",
+  "bugs": {
+    "url": "https://github.com/FATAH1804dev/api_project_users/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FATAH1804dev/api_project_users.git"
+  },
+  "license": "ISC",
+  "author": "Fathahillah Ath Thoriq",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest -i"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+  },
+  "dependencies": {
+    "@prisma/adapter-mariadb": "^7.10.0",
+    "@prisma/client": "^7.10.0",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "joi": "^18.2.5",
+    "uuid": "^14.0.2",
+    "winston": "^3.19.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
+    "@types/bcrypt": "^6.0.0",
+    "@types/express": "^5.0.6",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^26.4.0",
+    "@types/supertest": "^7.2.1",
+    "@types/uuid": "^10.0.0",
+    "babel-jest": "^30.5.1",
+    "jest": "^30.5.1",
+    "prisma": "^7.10.0",
+    "supertest": "^7.2.2"
+  }
+}
