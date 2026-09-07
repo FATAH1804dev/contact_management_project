@@ -1,0 +1,68 @@
+Ringkasan Masalah & Solusi Jest Configuration
+❌ Masalah yang Ditemukan:
+1. File jest.config.json Tidak Ada
+User hanya punya konfigurasi di package.json (tidak lengkap)
+Tidak ada dedicated Jest config file
+
+2. Regex Pattern Error di Jest Config:
+{
+    ❌ "I^.+\. (ts|tsx)$": "ts-jest"  // SALAH
+✅ "^.+\\.tsx?$": ["ts-jest", {...}]  // BENAR
+}
+
+-Ada karakter I di awal yang tidak seharusnya
+-Spasi dan escape sequence salah
+-Trailing semicolon di akhir JSON (tidak valid)
+
+3. Campuran ESM & CommonJS
+Test file .mjs tapi pakai require()
+database.js pakai require() padahal project pakai ESM ("type": "module")
+util-test.js campuran require() dan export
+
+4. TypeScript Support di Jest Tidak Dikenali
+tsconfig.json tidak include Jest types
+Error: "Cannot find name 'describe'" di editor
+@types/jest sudah installed tapi types tidak registered
+
+5. Tidak Ada ESM Support di Jest
+"Must use import to load ES Module"
+Jest default tidak support ESM modules
+Perlu NODE_OPTIONS=--experimental-vm-modules
+Perlu konfigurasi extensionsToTreatAsEsm di Jest
+
+6. TypeScript Version Incompatibility
+TypeScript v7.0.2 tidak kompatibel dengan ts-jest v29
+ts-jest memerlukan TypeScript >=4.3 <7
+Perlu downgrade ke TypeScript v5.7
+
+7. File Test Masih Ada 2 Versi
+test/user.test.mjs (CommonJS, error)
+user.test.ts (ESM, benar)
+File .mjs masih dijalankan dan error
+
+8. NODE_OPTIONS Flag Tidak Otomatis
+npm test di package.json tidak punya --experimental-vm-modules
+Perlu cross-env untuk Windows compatibility
+
+✅ Solusi yang Diterapkan:
+#	Masalah	Solusi
+1	Tidak ada Jest config:	Buat jest.config.json dengan ts-jest preset
+2	Regex error	Fix pattern: ^.+\\.tsx?$
+3	Campuran ESM/CommonJS:	Convert semua ke ESM import/export
+4	Types Jest tidak dikenali:	Tambah "types": ["jest", "node"] di tsconfig.json
+5	Jest tidak support ESM:	Tambah NODE_OPTIONS=--experimental-vm-modules di script
+6	TypeScript v7 error:	Downgrade ke TypeScript v5.7
+7	2 file test error:	Delete test/user.test.mjs, gunakan user.test.ts
+8	NODE_OPTIONS tidak otomatis:	Install cross-env dan update npm scripts
+
+
+📝 File yang Diubah:
+jest.config.json - Dibuat baru dengan konfigurasi ESM
+tsconfig.json - Tambah types, isolatedModules, include test folder
+package.json - Update test script dengan NODE_OPTIONS
+user.test.ts - Convert dari .mjs ke .ts dengan import ESM
+util-test.js - Convert ke ESM import/export
+database.js - Convert require() ke import
+Dependency - Install: ts-jest, cross-env; Downgrade TypeScript v5.7
+
+Sekarang project sudah fully configured untuk ESM + TypeScript + Jest! 🚀

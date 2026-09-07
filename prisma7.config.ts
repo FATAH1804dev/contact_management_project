@@ -11,3 +11,14 @@ export default defineConfig({
     url: env("DATABASE_URL"),
   },
 });
+
+// {
+//   "compilerOptions": {
+//     "module": "ESNext",
+//     "moduleResolution": "bundler",
+//     "target": "ES2023",
+//     "strict": true,
+//     "esModuleInterop": true,
+//     "ignoreDeprecations": "6.0"
+//   }
+// }

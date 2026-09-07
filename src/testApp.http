@@ -1,0 +1,138 @@
+### user register
+POST http://localhost:3000/api/users
+Content-Type: application/json
+Accept: application/json
+
+{
+    "username" : "John",
+    "password" : "rahasia456",
+    "name" : "John kennedy"
+}
+
+### user login
+POST http://localhost:3000/api/users/login
+Content-Type: application/json
+Accept: application/json
+
+{
+    "username" : "John",
+    "password" : "rahasia456"
+}
+
+### token khannedy: 654da36a-fd94-4c16-8457-aa9036fc949d
+### token Jacob: f6968b78-a530-4876-a616-3ed0eda284c4
+### token John: b051d50e-b1cf-4a2a-9f42-037904439a9b
+
+### user get
+GET  http://localhost:3000/api/users/current
+Content-Type: application/json
+Accept: application/json
+Authorization: 654da36a-fd94-4c16-8457-aa9036fc949d
+
+### user update
+PATCH   http://localhost:3000/api/users/current
+Content-Type: application/json
+Accept: application/json
+Authorization: 654da36a-fd94-4c16-8457-aa9036fc949d
+
+{
+    "password": "rahasia456",
+    "name": "John kennedy"
+}
+
+### user delete
+DELETE    http://localhost:3000/api/users/logout
+Content-Type: application/json
+Accept: application/json
+Authorization: 654da36a-fd94-4c16-8457-aa9036fc949d
+
+### contact create
+POST    http://localhost:3000/api/contacts
+Content-Type: application/json
+Accept: application/json
+Authorization: f6968b78-a530-4876-a616-3ed0eda284c4
+
+{
+    "firstName": "Jacob",
+    "lastName": "Sanke",
+    "email": "jaco098@gmail.com",
+    "phone": "7756492938"
+}
+
+### contact id jacob: 1219, 1220, 1221
+
+### contact get
+GET    http://localhost:3000/api/contacts/1220
+Content-Type: application/json
+Accept: application/json
+Authorization: f6968b78-a530-4876-a616-3ed0eda284c4
+
+### contact update
+PUT    http://localhost:3000/api/contacts/1220
+Content-Type: application/json
+Accept: application/json
+Authorization: f6968b78-a530-4876-a616-3ed0eda284c4
+
+{
+    "firstName": "Jacob",
+    "email": "jaco445@gmail.com",
+    "phone": "789445326"
+}
+
+### contact delete
+DELETE    http://localhost:3000/api/contacts/1220
+Content-Type: application/json
+Accept: application/json
+Authorization: f6968b78-a530-4876-a616-3ed0eda284c4
+
+### contact search
+GET     http://localhost:3000/api/contacts
+Content-Type: application/json
+Accept: application/json
+Authorization: f6968b78-a530-4876-a616-3ed0eda284c4
+
+### address create
+POST     http://localhost:3000/api/contacts/1221/address
+Content-Type: application/json
+Accept: application/json
+Authorization: f6968b78-a530-4876-a616-3ed0eda284c4
+
+{
+    "street": "Yamburg575 .St",
+    "city": "Fandtru",
+    "province": "Weryoi",
+    "country": "Molcev",
+    "postalCode": "322458"
+}
+
+### Jacob address id: 155, 156, 157
+
+### address get
+GET     http://localhost:3000/api/contacts/1221/address/156
+Content-Type: application/json
+Accept: application/json
+Authorization: f6968b78-a530-4876-a616-3ed0eda284c4
+
+### address update
+PUT     http://localhost:3000/api/contacts/1221/address/156
+Content-Type: application/json
+Accept: application/json
+Authorization: f6968b78-a530-4876-a616-3ed0eda284c4
+
+{
+    "street": "Yamburg763 .St",
+    "country": "Molcev",
+    "postalCode": "565458"
+}
+
+### address update
+GET     http://localhost:3000/api/contacts/1221/address
+Content-Type: application/json
+Accept: application/json
+Authorization: f6968b78-a530-4876-a616-3ed0eda284c4
+
+### address delete
+DELETE      http://localhost:3000/api/contacts/1221/address/157
+Content-Type: application/json
+Accept: application/json
+Authorization: f6968b78-a530-4876-a616-3ed0eda284c4

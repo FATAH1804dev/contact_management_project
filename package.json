@@ -22,12 +22,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "jest -i"
-  },
-  "jest": {
-    "transform": {
-      "^.+\\.[t|j]sx?$": "babel-jest"
-    }
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "dependencies": {
     "@prisma/adapter-mariadb": "^7.10.0",
@@ -40,17 +35,18 @@
     "winston": "^3.19.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.29.7",
-    "@babel/preset-env": "^7.29.7",
     "@types/bcrypt": "^6.0.0",
     "@types/express": "^5.0.6",
-    "@types/jest": "^29.5.14",
+    "@types/jest": "^30.0.0",
     "@types/node": "^26.4.0",
     "@types/supertest": "^7.2.1",
     "@types/uuid": "^10.0.0",
-    "babel-jest": "^30.5.1",
+    "cross-env": "^10.1.0",
     "jest": "^30.5.1",
     "prisma": "^7.10.0",
-    "supertest": "^7.2.2"
+    "supertest": "^7.2.2",
+    "ts-jest": "^29.4.12",
+    "tsx": "^4.23.13",
+    "typescript": "^5.9.3"
   }
 }

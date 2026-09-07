@@ -6,4 +6,10 @@
 
 -- SHOW TABLES
 
-DESCRIBE contacts
+-- DESCRIBE users
+
+select * FROM addresses
+
+-- delete from contacts
+
+-- delete from users where name = "Jake Smith" 
