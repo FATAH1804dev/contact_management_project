@@ -8,8 +8,8 @@
 
 -- DESCRIBE users
 
-select * FROM addresses
+select * FROM users
 
--- delete from contacts
+-- delete from users
 
 -- delete from users where name = "Jake Smith" 

@@ -1,14 +1,49 @@
 {
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "include": ["src/**/*", "lib/**/*.ts", "prisma7.config.ts", "test"],
   "compilerOptions": {
+    // File Layout
+    "rootDir": ".",
+    "outDir": "./dist",
+
+    // Environment Settings
+    // See also https://aka.ms/tsconfig/module
+    "types": ["node", "jest"],
+    // For nodejs:
+    "lib": ["esnext"],
     "module": "ESNext",
     "moduleResolution": "bundler",
     "target": "ES2023",
-    "strict": true,
+    "allowJs": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "noImplicitAny": false,
+    "ignoreDeprecations": "6.0",
+
+    // Other Outputs
+    "sourceMap": false,
+    "declaration": false,
+    "declarationMap": false,
+
+    // Stricter Typechecking Options
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    // Style Options
+    // "noImplicitReturns": true,
+    // "noImplicitOverride": true,
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    // "noFallthroughCasesInSwitch": true,
+    // "noPropertyAccessFromIndexSignature": true,
+
+    // Recommended Options
+    "strict": true,
+    "jsx": "react-jsx",
+    "verbatimModuleSyntax": true,
     "isolatedModules": true,
-    "types": ["jest", "node"]
-  },
-  "include": ["src", "generated", "test"]
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true,
+    "rewriteRelativeImportExtensions": true,
+    "erasableSyntaxOnly": true
+  }
 }

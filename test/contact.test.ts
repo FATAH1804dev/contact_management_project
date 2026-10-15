@@ -80,7 +80,7 @@ describe("GET /api/contacts/:contactId", () => {
   it("should be able to get contact by id", async () => {
     const contactId = await getContact();
     const result = await supertest(web)
-      .get("/api/contacts/" + contactId.id)
+      .get("/api/contacts/" + contactId!.id)
       .set("Authorization", "sampleToken");
 
     logger.info(result.body);
@@ -96,7 +96,7 @@ describe("GET /api/contacts/:contactId", () => {
   it("should not be able to get contact by id if id is not found", async () => {
     const contactId = await getContact();
     const result = await supertest(web)
-      .get("/api/contacts/" + (contactId.id + 1))
+      .get("/api/contacts/" + (contactId!.id + 1))
       .set("Authorization", "sampleToken");
 
     logger.info(result.body);
@@ -122,7 +122,7 @@ describe("PUT /api/contacts/:contactId", () => {
   it("should be able to update contact by id", async () => {
     const contactId = await getContact();
     const result = await supertest(web)
-      .put("/api/contacts/" + contactId.id)
+      .put("/api/contacts/" + contactId!.id)
       .set("Authorization", "sampleToken")
       .send({
         firstName: "Darren",
@@ -144,7 +144,7 @@ describe("PUT /api/contacts/:contactId", () => {
   it("should not be able to update contact by id if request is invalid", async () => {
     const contactId = await getContact();
     const result = await supertest(web)
-      .put("/api/contacts/" + contactId.id)
+      .put("/api/contacts/" + contactId!.id)
       .set("Authorization", "sampleToken")
       .send({
         firstName: "",
@@ -160,7 +160,7 @@ describe("PUT /api/contacts/:contactId", () => {
   it("should not be able to update contact by id if id is not found", async () => {
     const contactId = await getContact();
     const result = await supertest(web)
-      .put("/api/contacts/" + (contactId.id + 1))
+      .put("/api/contacts/" + (contactId!.id + 1))
       .set("Authorization", "sampleToken")
       .send({
         firstName: "Darren",
@@ -192,7 +192,7 @@ describe("DELETE /api/contacts/:contactId", () => {
   it("should be able to delete contact by id", async () => {
     let contactId = await getContact();
     const result = await supertest(web)
-      .delete("/api/contacts/" + contactId.id)
+      .delete("/api/contacts/" + contactId!.id)
       .set("Authorization", "sampleToken");
 
     logger.info(result.body);
@@ -205,7 +205,7 @@ describe("DELETE /api/contacts/:contactId", () => {
   it("should not be able to delete contact by id if id is not found", async () => {
     const contactId = await getContact();
     const result = await supertest(web)
-      .delete("/api/contacts/" + (contactId.id + 1))
+      .delete("/api/contacts/" + (contactId!.id + 1))
       .set("Authorization", "sampleToken");
 
     logger.info(result.body);

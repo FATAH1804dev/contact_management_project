@@ -38,7 +38,7 @@ describe("POST /api/contacts/:contactId/address", () => {
     const contactId = await getContact();
 
     const result = await supertest(web)
-      .post("/api/contacts/" + contactId.id + "/address")
+      .post("/api/contacts/" + contactId!.id + "/address")
       .set("Authorization", "sampleToken")
       .send({
         street: "Yamburg .St",
@@ -63,7 +63,7 @@ describe("POST /api/contacts/:contactId/address", () => {
     const contactId = await getContact();
 
     const result = await supertest(web)
-      .post("/api/contacts/" + contactId.id + "/address")
+      .post("/api/contacts/" + contactId!.id + "/address")
       .set("Authorization", "sampleToken")
       .send({
         street: "Yamburg .St",
@@ -81,7 +81,7 @@ describe("POST /api/contacts/:contactId/address", () => {
     const contactId = await getContact();
 
     const result = await supertest(web)
-      .post("/api/contacts/" + (contactId.id + 1) + "/address")
+      .post("/api/contacts/" + (contactId!.id + 1) + "/address")
       .set("Authorization", "sampleToken")
       .send({
         street: "Yamburg .St",
@@ -118,7 +118,7 @@ describe("GET /api/contacts/:contactId/address/:addressId", () => {
     const addressId = await getAddress();
 
     const result = await supertest(web)
-      .get("/api/contacts/" + contactId.id + "/address/" + addressId.id)
+      .get("/api/contacts/" + contactId!.id + "/address/" + addressId!.id)
       .set("Authorization", "sampleToken");
 
     logger.info(result.body);
@@ -138,7 +138,7 @@ describe("GET /api/contacts/:contactId/address/:addressId", () => {
     const addressId = await getAddress();
 
     const result = await supertest(web)
-      .get("/api/contacts/" + (contactId.id + 1) + "/address/" + addressId.id)
+      .get("/api/contacts/" + (contactId!.id + 1) + "/address/" + addressId!.id)
       .set("Authorization", "sampleToken");
 
     logger.info(result.body);
@@ -151,7 +151,7 @@ describe("GET /api/contacts/:contactId/address/:addressId", () => {
     const addressId = await getAddress();
 
     const result = await supertest(web)
-      .get("/api/contacts/" + contactId.id + "/address/" + (addressId.id + 1))
+      .get("/api/contacts/" + contactId!.id + "/address/" + (addressId!.id + 1))
       .set("Authorization", "sampleToken");
 
     logger.info(result.body);
@@ -182,7 +182,7 @@ describe("PUT /api/contacts/:contactId/address/:addressId", () => {
     const addressId = await getAddress();
 
     const result = await supertest(web)
-      .put("/api/contacts/" + contactId.id + "/address/" + addressId.id)
+      .put("/api/contacts/" + contactId!.id + "/address/" + addressId!.id)
       .set("Authorization", "sampleToken")
       .send({
         street: "Jebsol .St",
@@ -209,7 +209,7 @@ describe("PUT /api/contacts/:contactId/address/:addressId", () => {
     const addressId = await getAddress();
 
     const result = await supertest(web)
-      .put("/api/contacts/" + contactId.id + "/address/" + addressId.id)
+      .put("/api/contacts/" + contactId!.id + "/address/" + addressId!.id)
       .set("Authorization", "sampleToken")
       .send({
         street: "Jebsol .St",
@@ -229,7 +229,7 @@ describe("PUT /api/contacts/:contactId/address/:addressId", () => {
     const addressId = await getAddress();
 
     const result = await supertest(web)
-      .put("/api/contacts/" + contactId.id + "/address/" + (addressId.id + 1))
+      .put("/api/contacts/" + contactId!.id + "/address/" + (addressId!.id + 1))
       .set("Authorization", "sampleToken")
       .send({
         street: "Jebsol .St",
@@ -267,7 +267,7 @@ describe("DELETE /api/contacts/:contactId/address/:addressId", () => {
     let addressId = await getAddress();
 
     const result = await supertest(web)
-      .delete("/api/contacts/" + contactId.id + "/address/" + addressId.id)
+      .delete("/api/contacts/" + contactId!.id + "/address/" + addressId!.id)
       .set("Authorization", "sampleToken");
 
     logger.info(result.body);
@@ -283,7 +283,7 @@ describe("DELETE /api/contacts/:contactId/address/:addressId", () => {
 
     const result = await supertest(web)
       .delete(
-        "/api/contacts/" + contactId.id + "/address/" + (addressId.id + 1),
+        "/api/contacts/" + contactId!.id + "/address/" + (addressId!.id + 1),
       )
       .set("Authorization", "sampleToken");
 
@@ -298,7 +298,7 @@ describe("DELETE /api/contacts/:contactId/address/:addressId", () => {
 
     const result = await supertest(web)
       .delete(
-        "/api/contacts/" + (contactId.id + 1) + "/address/" + addressId.id,
+        "/api/contacts/" + (contactId!.id + 1) + "/address/" + addressId!.id,
       )
       .set("Authorization", "sampleToken");
 
@@ -329,7 +329,7 @@ describe("GET /api/contacts/:contactId/address", () => {
     const contact = await getContacts("test2");
 
     const result = await supertest(web)
-      .get("/api/contacts/" + contact.id + "/address")
+      .get("/api/contacts/" + contact!.id + "/address")
       .set("Authorization", "sampleToken78");
 
     logger.info(result.body);
@@ -341,7 +341,7 @@ describe("GET /api/contacts/:contactId/address", () => {
     const contact = await getContacts("test1");
 
     const result = await supertest(web)
-      .get("/api/contacts/" + contact.id + "/address")
+      .get("/api/contacts/" + contact!.id + "/address")
       .set("Authorization", "sampleToken78");
 
     logger.info(result.body);

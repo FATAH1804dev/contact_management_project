@@ -174,7 +174,7 @@ describe("PATCH /api/users/current", () => {
     expect(result.body.data.name).toBe("Bob");
     expect(result.body.data.username).toBe("test");
     const user = await getUser(result);
-    expect(await bcrypt.compare("secretPass21", user.password)).toBe(true);
+    expect(await bcrypt.compare("secretPass21", user!.password)).toBe(true);
   });
 
   it("should be able to update logged in user, only name", async () => {
@@ -203,7 +203,7 @@ describe("PATCH /api/users/current", () => {
     expect(result.status).toBe(200);
     expect(result.body.data.username).toBe("test");
     const user = await getUser(result);
-    expect(await bcrypt.compare("secretPass21", user.password)).toBe(true);
+    expect(await bcrypt.compare("secretPass21", user!.password)).toBe(true);
   });
 
   it("should not be able to update logged in user if token is invalid", async () => {

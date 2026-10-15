@@ -1,52 +1,96 @@
 {
-  "name": "api_users_project",
+  "name": "contact_management_project",
   "version": "1.0.0",
-  "description": "RESTful API project for handling user records, built with Node.js and Express.js, designed for learning and practice",
+  "description": "contact_management_project with nodejs and vuejs",
   "keywords": [
-    "api",
+    "project learning",
     "nodejs",
     "expressjs",
-    "users_management",
-    "project_learning"
+    "vuejs",
+    "pinia",
+    "vue-router",
+    "mysql",
+    "prisma"
   ],
-  "homepage": "https://github.com/FATAH1804dev/api_project_users#readme",
-  "bugs": {
-    "url": "https://github.com/FATAH1804dev/api_project_users/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/FATAH1804dev/api_project_users.git"
-  },
   "license": "ISC",
   "author": "Fathahillah Ath Thoriq",
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
+    "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --runInBand",
+    "build": "tsc",
+    "start": "node dist/src/main.js"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[tj]sx?$": [
+        "babel-jest",
+        {
+          "presets": [
+            [
+              "@babel/preset-env",
+              {
+                "targets": {
+                  "node": "current"
+                },
+                "modules": false
+              }
+            ],
+            "@babel/preset-typescript"
+          ]
+        }
+      ]
+    },
+    "moduleNameMapper": {
+      "^(\\.{1,2}/.*)\\.js$": "$1"
+    },
+    "testMatch": [
+      "<rootDir>/test/**/*.test.[jt]s"
+    ],
+    "extensionsToTreatAsEsm": [
+      ".ts"
+    ]
+  },
+  "overrides": {
+    "mariadb": "3.4.7",
+    "deepmerge-ts": "^8.0.1",
+    "mysql2": "3.23.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
+    "@babel/preset-typescript": "^7.29.7",
+    "@jest/globals": "^30.5.2",
+    "@types/bcrypt": "^6.0.0",
+    "@types/express": "^5.0.6",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^26.6.2",
+    "@types/supertest": "^7.2.1",
+    "@types/uuid": "^10.0.0",
+    "babel-jest": "^30.5.2",
+    "jest": "^30.5.2",
+    "prisma": "^7.10.0",
+    "supertest": "^7.3.0",
+    "ts-jest": "^29.4.12",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3"
   },
   "dependencies": {
     "@prisma/adapter-mariadb": "^7.10.0",
     "@prisma/client": "^7.10.0",
     "bcrypt": "^6.0.0",
-    "dotenv": "^17.4.2",
+    "dotenv": "^18.0.3",
     "express": "^5.2.1",
-    "joi": "^18.2.5",
+    "joi": "^18.2.9",
     "uuid": "^14.0.2",
     "winston": "^3.19.0"
   },
-  "devDependencies": {
-    "@types/bcrypt": "^6.0.0",
-    "@types/express": "^5.0.6",
-    "@types/jest": "^30.0.0",
-    "@types/node": "^26.4.0",
-    "@types/supertest": "^7.2.1",
-    "@types/uuid": "^10.0.0",
-    "cross-env": "^10.1.0",
-    "jest": "^30.5.1",
-    "prisma": "^7.10.0",
-    "supertest": "^7.2.2",
-    "ts-jest": "^29.4.12",
-    "tsx": "^4.23.13",
-    "typescript": "^5.9.3"
+  "allowScripts": {
+    "bcrypt@6.0.0": true,
+    "esbuild@0.28.2": true,
+    "@prisma/engines@7.10.0": true,
+    "prisma@7.10.0": true,
+    "@parcel/watcher@2.6.0": true,
+    "unrs-resolver@1.12.2": true
   }
 }
