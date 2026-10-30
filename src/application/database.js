@@ -1,4 +1,4 @@
-import { adapter } from "../../lib/prisma.js";
+import { adapter } from "../../lib/prisma.ts";
 import { logger } from "./logging.js";
 import { PrismaClient } from "../../generated/prisma/client.js";
 

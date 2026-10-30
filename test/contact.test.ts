@@ -213,7 +213,7 @@ describe("DELETE /api/contacts/:contactId", () => {
   });
 });
 
-describe("GET /api/contacts/", () => {
+describe("GET /api/contacts", () => {
   beforeEach(async () => {
     await createUsers();
     await createContacts();
@@ -230,7 +230,7 @@ describe("GET /api/contacts/", () => {
 
   it("should be able to get all contacts by search", async () => {
     const result = await supertest(web)
-      .get("/api/contacts/")
+      .get("/api/contacts")
       .set("Authorization", "sampleToken34");
 
     logger.info(result.body);
@@ -243,7 +243,7 @@ describe("GET /api/contacts/", () => {
 
   it("should be able to get all contacts by search and query", async () => {
     const result = await supertest(web)
-      .get("/api/contacts/")
+      .get("/api/contacts")
       .query({
         size: 2,
         page: 3,
@@ -260,7 +260,7 @@ describe("GET /api/contacts/", () => {
 
   it("should be able to get all contacts by search and query v2", async () => {
     const result = await supertest(web)
-      .get("/api/contacts/")
+      .get("/api/contacts")
       .query({
         name: "test5",
       })
@@ -276,7 +276,7 @@ describe("GET /api/contacts/", () => {
 
   it("should not be able to get all contacts by search if request invalid", async () => {
     const result = await supertest(web)
-      .get("/api/contacts/")
+      .get("/api/contacts")
       .query({
         size: 2,
         page: 3,

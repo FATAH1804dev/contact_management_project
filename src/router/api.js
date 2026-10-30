@@ -17,7 +17,7 @@ userRouter.post("/api/contacts", controllerContact.create);
 userRouter.get("/api/contacts/:contactId", controllerContact.get);
 userRouter.put("/api/contacts/:contactId", controllerContact.update);
 userRouter.delete("/api/contacts/:contactId", controllerContact.remove);
-userRouter.get("/api/contacts/", controllerContact.search);
+userRouter.get("/api/contacts", controllerContact.search);
 
 //api address
 userRouter.post("/api/contacts/:contactId/address", controllerAddress.create);
