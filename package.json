@@ -1,14 +1,11 @@
 {
   "name": "contact_management_project",
   "version": "1.0.0",
-  "description": "contact_management_project with nodejs and vuejs",
+  "description": "contact_management_project with nodejs",
   "keywords": [
     "project learning",
     "nodejs",
     "expressjs",
-    "vuejs",
-    "pinia",
-    "vue-router",
     "mysql",
     "prisma"
   ],
